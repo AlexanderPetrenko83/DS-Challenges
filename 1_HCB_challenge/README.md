@@ -52,6 +52,10 @@ This file contains descriptions for the columns in the various data files.
 
 **Указанные выше файлы можно скачать по ссылке - https://www.kaggle.com/c/home-credit-default-risk/data**
 
+**Файл с решением в формате Jupyter Notebook  - 201121_X_y_data_models.ipynb**
+
+Файл с прогнозными значениями - LGBM_m1_10000.csv
+
 # Этапы решения задачи
 **1. Работаем с Application data**
 - определили и удалили аномальные значения признаков, а также создали признаки метки для аномальных значений
