@@ -49,3 +49,13 @@ One row is equivalent to one payment of one installment OR one installment corre
 - HomeCredit_columns_description.csv
 
 This file contains descriptions for the columns in the various data files.
+
+**Указанные выше файлы можно скачать по ссылке - https://www.kaggle.com/c/home-credit-default-risk/data**
+
+# Этапы решения задачи
+**1. Работаем с Application data**
+- определили и удалили аномальные значения признаков, а также создали признаки метки для аномальных значений
+- создали логические фичи (например, определили отношение дохода к ежемесячному платежу, отношение цены товара к сумме кредита и др.)
+- провели бинаризацию категориальных данных
+**2. Работаем с Bureau data**
+- 
