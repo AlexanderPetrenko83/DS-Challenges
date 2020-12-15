@@ -18,7 +18,7 @@
  - **Решение в формате Jupyter Notebook, одно из первых, без использоваиня "запрещенного приема" - 201206_pap_true_score.ipynb - f1-score = 0.4441**
 Файл с правильными ответами - baseline_submission.csv
  - **Решение в формате Jupyter Notebook, последнее валидированное с "запрещенным" приемом - 201211_pap_SIBUR_06699.ipynb - f1-score = 0.6699**
-Файл с правильными ответами - baseline_submission.csv
+Файл с правильными ответами - submission_lgbm_and_deep_tree.csv
 
 # Этапы решения
 
