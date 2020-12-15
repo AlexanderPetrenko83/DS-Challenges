@@ -14,7 +14,7 @@
 
 Данные для обучения и тестирования - train.zip, test.zip
 
-
+# Есть несколько решений задачи:
 **Решение в файле Jupyter Notebook - 201206_pap_true_score.ipynb**
 Файл с правильными ответами - baseline_submission.csv
 
