@@ -15,8 +15,9 @@
 Данные для обучения и тестирования - train.zip, test.zip
 
 # Есть несколько решений задачи:
- - Решение в формате Jupyter Notebook, одно из первых, без использоваиня "запрещенного приема" - **201206_pap_true_score.ipynb - f1-score = 0.4441**
-Файл с правильными ответами - baseline_submission.csv
+ - Решение в формате Jupyter Notebook, одно из первых, без использоваиня "запрещенного приема":  
+ **201206_pap_true_score.ipynb - f1-score = 0.4441**  
+ Файл с правильными ответами - baseline_submission.csv
 
  - Решение в формате Jupyter Notebook без использоваиня "запрещенного приема" - **201208_pap_true_score_1.ipynb - f1-score = 0.5346**
  
