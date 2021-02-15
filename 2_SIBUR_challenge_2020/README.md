@@ -27,7 +27,7 @@
  - Решение в формате Jupyter Notebook, финальное на паблик с "запрещенным" приемом:  
  *Название файла: **201211_pap_SIBUR_06699.ipynb***  
  *f1-score = **0.7036** на паблике  
- **Место: 28**  
+ **[Место](https://sibur.ai-community.com/competitions/4/tasks/12/rating): 28**  
 Файл с правильными ответами - submission_lgbm_and_deep_tree.csv
 
 # Этапы последнего решения
