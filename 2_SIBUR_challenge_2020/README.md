@@ -77,38 +77,61 @@
 Каждый датасет состоит из названий организаций для пар объектов (слов) за вычетом выскочастотных слов по установленному порогу частоты употребления.  
 Используем следующие пороги: 50, 200, 250, 300, 350, 500
 2. Для каждого датасета создадим признаковое пространство следующим образом:
-2.1. Определим метрики наиболее значимых дистанций:
 
- ***Similar and dudplicate words***
+2.1. Определим **метрики наиболее значимых дистанций:**
+
+*Create label if both of cells are empty:*
+ - **label** if the both names of companies have zero words (they are empty): 
+        - label 0 when here is empty in names of companies
+        - label 1 else
+
+*Count Levenstein and normilized Levenstein distances:*
+ - **levenstein** distance after drop all selected high-frequency words
+ - **Normalized levenstein** distance
+ 
+*Count Jaro-Winkler distance:*
+ - **Jaro Winkler distance** after drop all selected high-frequency words
+ 
+*Count distance metric based on Longest Common Subsequence:*
+ - **Distance LCS** after drop all selected high-frequency words
+ 
+*Ratios:*
+ - ratio between **levenstein** distance and **label 0** if names are empty
+ - ratio between **normalized levenstein** distance and **label 0**
+ - ratio between **jaro** distance and **label 0**
+ - ratio between **distance LCS** and **label 0**
+
+2.2. Оцифруем **информацию о схожести и различии слов и символов:**
+*Similar and dudplicate words*
  - **duplct_wrds** - count of duplicate words
  - **duplct_smbls** - the sum of the_symbols in duplicate words
  - **frst_s** - the sum of the first repeated symbols
  - **last_s** - the sum of the last repeated symbols
 
 
-***Different words***
+*Different words*
  - **dif_wrds** - count of different words
  - **dif_smbls** - sum of symbols in duplicate words
  
  
-## *Labels*
+*Labels*
  - **subset** - if one name contain all the words of another in the beginning sign it 1, else 0
  - **subsetr** - if one name contain all the words of another sign it 1, else 0
  
-## *Additional*
+*Additional*
  - **sum_wrds** - sum of count of the duplicate and different words
  - **sum_smbls** - sum of all symbols in the names of companies
  
-## *Subtraction*
+*Subtraction*
  - **subtr_wrds** - differences between count of duplicate and different words
  - **subtr_symb** - differences between the sum of the symbols in duplicate and different words
  
-## *Ratios*
+*Ratios*
  - **avg_smbls_duplct** - ratio between sum of symbols and count of duplicate words. Else can say: average number of symbols in a duplicate word;
  - **avg_smbls_dif** - ratio between sum of symbols and count of different words. Else can say: average number of symbols in a different word;
  - **avg_frst_s** - ratio between the sum of the first repeated symbols and sum of the all symbols in the name of company
  - **avg_last_s** - ratio between the sum of the last repeated symbols and sum of the all symbols in the name of company 
  - **rt_dplct_to_dif_wrds** - ratio between count of duplicate and different words in the pair
  - **rt_dplct_to_sum_wrds** - ratio between count of duplicate and all words in the pair
-4.2. Оцифруем информацию о схожести и различии слов и символов:
-5.Объединяем датасеты с признаковым пространством
+
+3.Объединяем датасеты с признаковым пространством
