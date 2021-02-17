@@ -79,28 +79,27 @@
 2. Для каждого датасета создадим признаковое пространство следующим образом:
 
     2.1. Определим **метрики наиболее значимых дистанций:**  
-*****************************************************
 
-   *Create label if both of cells are empty:*
-     - **label** if the both names of companies have zero words (they are empty): 
-            - label 0 when here is empty in names of companies
-            - label 1 else
+      *Create label if both of cells are empty:*
+        - **label** if the both names of companies have zero words (they are empty): 
+               - label 0 when here is empty in names of companies
+               - label 1 else
 
-   *Count Levenstein and normilized Levenstein distances:*
-    - **levenstein** distance after drop all selected high-frequency words
-    - **Normalized levenstein** distance
+      *Count Levenstein and normilized Levenstein distances:*
+       - **levenstein** distance after drop all selected high-frequency words
+       - **Normalized levenstein** distance
 
-   *Count Jaro-Winkler distance:*
-    - **Jaro Winkler distance** after drop all selected high-frequency words
+      *Count Jaro-Winkler distance:*
+       - **Jaro Winkler distance** after drop all selected high-frequency words
 
-   *Count distance metric based on Longest Common Subsequence:*
-    - **Distance LCS** after drop all selected high-frequency words
+      *Count distance metric based on Longest Common Subsequence:*
+       - **Distance LCS** after drop all selected high-frequency words
 
-   *Ratios:*
-    - ratio between **levenstein** distance and **label 0** if names are empty
-    - ratio between **normalized levenstein** distance and **label 0**
-    - ratio between **jaro** distance and **label 0**
-    - ratio between **distance LCS** and **label 0**
+      *Ratios:*
+       - ratio between **levenstein** distance and **label 0** if names are empty
+       - ratio between **normalized levenstein** distance and **label 0**
+       - ratio between **jaro** distance and **label 0**
+       - ratio between **distance LCS** and **label 0**
 
 2.2. Оцифруем **информацию о схожести и различии слов и символов:**
 *Similar and dudplicate words*
