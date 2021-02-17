@@ -80,9 +80,9 @@
 
     2.1. Определим **метрики наиболее значимых дистанций:**  
 
-      *Create label if both of cells are empty:*
-        - **label** if the both names of companies have zero words (they are empty): 
-               - label 0 when here is empty in names of companies
+      *Create label if both of cells are empty:*  
+       - **label** if the both names of companies have zero words (they are empty):  
+               - label 0 when here is empty in names of companies  
                - label 1 else
 
       *Count Levenstein and normilized Levenstein distances:*
