@@ -78,10 +78,10 @@
 Используем следующие пороги: 50, 200, 250, 300, 350, 500
 2. Для каждого датасета создадим признаковое пространство следующим образом:
 
- 2.1. Определим **метрики наиболее значимых дистанций:**  
+    2.1. Определим **метрики наиболее значимых дистанций:**  
 *****************************************************
 
- *Create label if both of cells are empty:*
+    *Create label if both of cells are empty:*
  - **label** if the both names of companies have zero words (they are empty): 
         - label 0 when here is empty in names of companies
         - label 1 else
