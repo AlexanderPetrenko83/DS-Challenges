@@ -57,18 +57,58 @@
 1. Переведем символы в нижний регистр
 2. Удалим спецсимволы, знаки препинания (всё кроме букв и цифр)
 3. Проведем транслитерацию
-4. Составим список стоп-слов и удалим слова по списку (страны, столицы, крупные города, геогафические объекты, виды деятельности и др.)
+4. Составим список стоп-слов и удалим стоп-слова (названия стран, столиц, крупных городов, геогафических объектов и др.)
 
 **Анализ высокочастотных слов**
-1. Создаем словарь встречаемости слов (кол-во употреблений каждого уникального слова в тексте)
-2. Визуализируем словарь встречаемости слов - **word cloud**
-3. Создаем матрицу 650 наиболее встречаемых слов (650*650)
-4. Создаем датасет, в котором каждая пара названий организаций с определенной целевой меткой (0 или 1) сопостовляется с количеством употреблений каждого слова из 650 наиболее встречаемых слов 
-5. Определяем наиболее значимые по индексу Джинни слова из 650 (**Light GBM**)
-6. Создаем первый список названий организаций (холдингов)
-7. Посмотрим на графическое представление - **word cloud** слов только для пар названий организаций с целевой меткой 1
-8. Создаем второй список названий организаций (холдингов)
-9. Объединяем списки названий организаций (холдингов)
-10. Исключим из словаря встречаемости слов, слова из списка названий организаций и холдингов. Получим словарь встречаемости слов без названий организаций.
+1. Создадим словарь встречаемости слов (кол-во употреблений каждого уникального слова в тексте)
+2. Визуализируем словарь встречаемости слов с помощью **word cloud**
+3. Создадим матрицу 650 наиболее встречаемых слов (650*650)
+4. Создадим датасет, в котором каждая пара названий организаций с определенной целевой меткой (0 или 1) сопостовляется с количеством употреблений каждого слова из 650 наиболее встречаемых слов 
+5. Определим наиболее значимые по индексу Джинни слова из 650 (**Light GBM**)
+6. Создадим первый список названий организаций (холдингов)
+7. Визуализируем словарь встречаемости слов только для пары названий организаций с целевой меткой 1 (дубликаты)
+8. Создадим второй список названий организаций (холдингов)
+9. Объединим списки названий организаций (холдингов)
+10. Исключим из словаря встречаемости слов названия организаций и холдингов. 
+11. В итоге получим словарь встречаемости слов без названий организаций
 
 **Создание признакового пространства**
+1. Создадим 6 датасетов, которые будут использоваться в построении прогнозной модели бинарной классификации объектов (0 или 1).  
+Каждый датасет состоит из названий организаций для пар объектов (слов) за вычетом выскочастотных слов по установленному порогу частоты употребления.  
+Используем следующие пороги: 50, 200, 250, 300, 350, 500
+2. Для каждого датасета создадим признаковое пространство следующим образом:
+2.1. Определим метрики наиболее значимых дистанций:
+
+ ***Similar and dudplicate words***
+ - **duplct_wrds** - count of duplicate words
+ - **duplct_smbls** - the sum of the_symbols in duplicate words
+ - **frst_s** - the sum of the first repeated symbols
+ - **last_s** - the sum of the last repeated symbols
+
+
+***Different words***
+ - **dif_wrds** - count of different words
+ - **dif_smbls** - sum of symbols in duplicate words
+ 
+ 
+## *Labels*
+ - **subset** - if one name contain all the words of another in the beginning sign it 1, else 0
+ - **subsetr** - if one name contain all the words of another sign it 1, else 0
+ 
+## *Additional*
+ - **sum_wrds** - sum of count of the duplicate and different words
+ - **sum_smbls** - sum of all symbols in the names of companies
+ 
+## *Subtraction*
+ - **subtr_wrds** - differences between count of duplicate and different words
+ - **subtr_symb** - differences between the sum of the symbols in duplicate and different words
+ 
+## *Ratios*
+ - **avg_smbls_duplct** - ratio between sum of symbols and count of duplicate words. Else can say: average number of symbols in a duplicate word;
+ - **avg_smbls_dif** - ratio between sum of symbols and count of different words. Else can say: average number of symbols in a different word;
+ - **avg_frst_s** - ratio between the sum of the first repeated symbols and sum of the all symbols in the name of company
+ - **avg_last_s** - ratio between the sum of the last repeated symbols and sum of the all symbols in the name of company 
+ - **rt_dplct_to_dif_wrds** - ratio between count of duplicate and different words in the pair
+ - **rt_dplct_to_sum_wrds** - ratio between count of duplicate and all words in the pair
+4.2. Оцифруем информацию о схожести и различии слов и символов:
+5.Объединяем датасеты с признаковым пространством
